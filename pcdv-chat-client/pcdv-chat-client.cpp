@@ -8,6 +8,26 @@ using namespace std;
 int main()
 {
     cout << "Initializing Chat Client";
+
+    cout << "Step 1: Setting up DLL" << endl;
+    SOCKET clientSocket, acceptSocket;
+    int port = 55555;
+    WSADATA wsaData;
+    int wsaError;
+    WORD wVersionRequested = MAKEWORD(2, 2);
+
+    wsaError = WSAStartup(wVersionRequested, &wsaData);
+
+    if (wsaError != 0)
+    {
+        cout << "Winsock dll not found!" << endl;
+        return 0;
+    }
+    else
+    {
+        cout << "Winsock dll found!" << endl;
+        cout << "Status: " << wsaData.szSystemStatus << endl;
+    }
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
