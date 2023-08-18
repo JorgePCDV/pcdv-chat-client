@@ -28,6 +28,21 @@ int main()
         cout << "Winsock dll found!" << endl;
         cout << "Status: " << wsaData.szSystemStatus << endl;
     }
+
+    cout << "Step 2: Setting up Client Socket" << endl;
+    clientSocket = INVALID_SOCKET;
+    clientSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+
+    if (clientSocket == INVALID_SOCKET)
+    {
+        cout << "Error at socket():" << WSAGetLastError() << endl;
+        WSACleanup();
+        return 0;
+    }
+    else
+    {
+        cout << "socket() is OK!" << endl;
+    }
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
