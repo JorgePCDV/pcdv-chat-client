@@ -1,11 +1,13 @@
-// pcdv-chat-client.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <iostream>
+#include <tchar.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    cout << "Initializing Chat Client";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
