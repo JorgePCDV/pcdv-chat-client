@@ -43,6 +43,28 @@ int main()
     {
         cout << "socket() is OK!" << endl;
     }
+
+    cout << "Step 3: Connect with Server" << endl;
+    sockaddr_in service;
+    service.sin_family = AF_INET;
+
+    InetPton(AF_INET, _T("127.0.0.1"), &service.sin_addr.s_addr);
+    service.sin_port = htons(port);
+    if (connect(clientSocket, (SOCKADDR*)&service, sizeof(service)) == SOCKET_ERROR)
+    {
+        cout << "bind() failed: " << WSAGetLastError() << endl;
+        closesocket(clientSocket);
+        WSACleanup();
+        return 0;
+    }
+    else
+    {
+        cout << "connect() is OK!" << endl;
+        cout << "Client can start sending and receiving data..." << endl;
+    }
+    system("pause");
+    WSACleanup();
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
