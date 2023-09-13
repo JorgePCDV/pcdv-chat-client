@@ -79,6 +79,16 @@ int main()
         {
             WSACleanup();
         }
+
+        byteCount = recv(clientSocket, buffer, 200, 0);
+        if (byteCount > 0)
+        {
+            cout << "Message received from server: " << buffer << endl;
+        }
+        else
+        {
+            WSACleanup();
+        }
     }
  
     cout << "Step 5: Close Socket" << endl;
